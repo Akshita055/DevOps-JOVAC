@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 2 * * *'  # Daily at 2:00 AM UTC
+    - cron: '0 2 * * *'  # Runs daily at 2:00 AM UTC
 
 jobs:
   link-check:
@@ -18,7 +18,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2.4.1
         with:
           args: >
-            --verbose --exclude-mail --no-progress ./static-site904/**/*.html ./static-site904/**/*.md
+            --verbose --exclude-mail --no-progress ./my-site/**/*.html ./my-site/**/*.md
 
       - name: ✅ All good
         if: success()
