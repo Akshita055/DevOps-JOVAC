@@ -14,16 +14,11 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-           - name: 🔍 Run Lychee Link Checker
-             uses: lycheeverse/lychee-action@v2.4.1
+      - name: 🔍 Run Lychee Link Checker
+        uses: lycheeverse/lychee-action@v2.4.1
         with:
           args: >
-            --verbose
-            --exclude-mail
-            --no-progress
-            './GitHub-Actions/my-site/**/*.html'
-            './GitHub-Actions/my-site/**/*.md'
-
+            --verbose --exclude-mail --no-progress ./static-site904/**/*.html ./static-site904/**/*.md
 
       - name: ✅ All good
         if: success()
