@@ -20,7 +20,7 @@ jobs:
           args: >
             --verbose --exclude-mail --no-progress ./my-site/**/*.html ./my-site/**/*.md
 
-      - name: ✅ All good
+      - name: ✅ All good 
         if: success()
         run: echo "✅ No broken links found!"
 
