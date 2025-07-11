@@ -21,7 +21,7 @@ jobs:
             --verbose
             --exclude-mail
             --no-progress
-            ./my-site/**/*.html
+            ./mysite/**/*.html
 
       - name: ✅ All good
         if: success()
