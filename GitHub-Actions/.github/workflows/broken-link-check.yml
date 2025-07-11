@@ -1,0 +1,33 @@
+name: 🔗 Broken Link Checker
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2:00 AM UTC
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔍 Run Lychee Link Checker
+        uses: lycheeverse/lychee-action@v2.4.1
+        with:
+          args: >
+            --verbose
+            --exclude-mail
+            --no-progress
+            './my-site/**/*.html'
+            './my-site/**/*.md'
+
+      - name: ✅ All good
+        if: success()
+        run: echo "✅ No broken links found!"
+
+      - name: ❌ Broken links found
+        if: failure()
+        run: echo "⚠️ Broken links detected. Check the action logs!"
